@@ -174,7 +174,7 @@ swal({
     <!-- header-section-ends -->
     <!-- banner-section -->
     <div class="banner">
-            <div class="banner-info text-center">
+            <div class="banner-info text-center" >
                 <h1>Singing</h1>
                 <h2>That comes from the soul</h2>
               <br>
@@ -228,7 +228,7 @@ swal({
  -->
         <?php 
   
-              $query=mysqli_query($c1,"SELECT * FROM event_tbl WHERE NOT `status`='Admission' ORDER BY event_date ASC LIMIT 4 ;");
+              $query=mysqli_query($c1,"SELECT * FROM event_tbl WHERE `status`='Admission' ORDER BY event_date ASC LIMIT 4 ;");
                     while ($row=mysqli_fetch_array($query))
                 echo'          
                 <div class="col-md-3 popular-section-right-grid text-center">
@@ -289,132 +289,7 @@ swal({
                 <div class="clearfix"></div>
             </div>
     </div>
-		<div id="example1">
-		<div id="owl-demo" class="owl-carousel text-center">
-			<div class="item">
-				<a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-					<img class="img-responsive lot" src="images/pc.jpg" alt="">
-                    <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                            <i class="plus"></i>
-                        </div>
-                    </div>
-                </a>
-			</div>
-			<div class="item">
-				<a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc1.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-					<img class="img-responsive lot" src="images/pc1.jpg" alt="">
-                     <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                             <i class="plus"></i>
-				        </div>
-                    </div>
-				</a>
-			</div>
-			<div class="item">
-				<a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc2.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-					<img class="img-responsive lot" src="images/pc2.jpg" alt="">
-                     <div class="b-wrapper">
-                    <div class="b-animate b-from-left b-delay03 ">
-                        <i class="plus"></i>
-								</div>
-                         </div>
-
-				</a>
-			</div>
-			<div class="item">
-                <a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc3.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-					<img class="img-responsive lot" src="images/pc3.jpg" alt="">
-                     <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                            <i class="plus"></i>
-                         </div>
-                    </div>
-				</a>
-            </div>
-			<div class="item">
-				<a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-					<img class="img-responsive lot" src="images/pc.jpg" alt="">
-                    <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                            <i class="plus"></i>
-                        </div>
-                    </div>
-                </a>
-			</div>
-			<div class="item">
-				<a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc1.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-					<img class="img-responsive lot" src="images/pc1.jpg" alt="">
-                     <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                             <i class="plus"></i>
-				        </div>
-                    </div>
-				</a>
-			</div>
-			<div class="item">
-				<a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc2.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-					<img class="img-responsive lot" src="images/pc2.jpg" alt="">
-                     <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                             <i class="plus"></i>
-				        </div>
-                    </div>
-				</a>
-			</div>
-			<div class="item">
-				<a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc3.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-					<img class="img-responsive lot" src="images/pc3.jpg" alt="">
-                     <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                            <i class="plus"></i>
-                         </div>
-                    </div>
-				</a>
-			</div>
-		</div>
-		</div>
-        <!-- requried-jsfiles-for owl -->
-							<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
-							    <script src="js/owl.carousel.js"></script>
-							      <script>
-								  $(document).ready(function() {
-									   $("#owl-demo").owlCarousel({
-									    items : 4,
-									    lazyLoad : true,
-									    autoPlay : false,
-									    navigation : true,
-									    navigationText :  true,
-									    pagination : false,
-									    });
-								  });
-								</script>
-        <!-- //requried-jsfiles-for owl -->
-		<!-- start content_slider -->
-		<!--//sreen-gallery-cursual -->
-   <!--  <div class="social-network">
-        <div class="social-network1">
-				<a href="#">
-				<i class="facebook"></i>
-                <p>like Us On Facebook</p>
-				<div class="clearfix"></div>
-				</a>
-        </div>
-        <div class="social-network2">
-			<a href="#">
-			<i class="twitter"></i>
-			<p>Follow us On Twitter</p>
-			</a>
-        </div>
-        <div class="social-network3">
-			<a href="#">
-			<i class="googlepluse"></i>
-			<p>Follow Us On Google+</p>
-			</a>
-        </div>
-        <div class="clearfix"></div>
-    </div> -->
-    <!-- footer-section-starts -->
+	
 	<div class="footer">
 		<div class="copy-rights text-center">
 			<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
