@@ -1,11 +1,11 @@
 <?php  include ('connect.php');?>
-<?php include ("modals.php"); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin | PYC</title>
+  <title>Admin | Accounts</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <?php include("admin-head-links.php"); ?>
@@ -89,7 +89,7 @@ img
 <div class="wrapper" style="background-color: transparent;">
 
 <div class="wrapper" style="margin:10px; width:98%">
-<!-- <button id="addbtn" type='button'  style="width:99%;" class="btn btn-success">Add  +</button> -->
+<button id="addbtn" type='button'  style="width:99%;" class="btn btn-success">Add  +</button>
 
 
 
