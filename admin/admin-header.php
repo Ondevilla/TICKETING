@@ -6,7 +6,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini" style="font-size: 18px;font-family: Agency FB;">C</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg" style="font-size: 18px;font-family: Agency FB;">CONCERT MO TO</span>
+      <span class="logo-lg" style="font-size: 18px;font-family: Agency FB;">CONCERT</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -24,7 +24,7 @@
     <!--  Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
            
-            <a href="logout.php" type="submit" class="btn btn-flat">Sign out</a>
+            <a href="logout.php">Sign out</a>
             
           </li>
           <!-- Control Sidebar Toggle Button -->

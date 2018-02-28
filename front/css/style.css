@@ -105,9 +105,11 @@ label{
 	transform: translateX(0px);
 }
 .banner{
-    background:url('../images/banner.jpg') no-repeat;
+
     background-size:cover;
     min-height: 990px;
+      background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/banner.jpg') no-repeat;
+
 }
 .banner-info {
     padding-top: 7em;
@@ -169,6 +171,28 @@ label{
 	margin-top:15px;
 }
 .form input[type="text"]{
+	padding:10px 10px 12px;
+	width:300px;
+	margin:0;
+	border:1px solid #3C3C3C;
+	box-shadow:inset 0px 1px 0px #2E2E2E;
+	background:#2C2C2C;
+	color:#DFD6D6;
+	outline:none;
+	font-family: 'Abel', sans-serif;
+		}
+.form input[type="password"]{
+	padding:10px 10px 12px;
+	width:300px;
+	margin:0;
+	border:1px solid #3C3C3C;
+	box-shadow:inset 0px 1px 0px #2E2E2E;
+	background:#2C2C2C;
+	color:#DFD6D6;
+	outline:none;
+	font-family: 'Abel', sans-serif;
+		}
+.form input[type="email"]{
 	padding:10px 10px 12px;
 	width:300px;
 	margin:0;
@@ -1837,7 +1861,7 @@ form{
 	width: 100%;
 	margin: 0 auto;
 }
-.contact-section form input[type="text"],.contact-section form textarea{
+.contact-section form input[type="text"],.contact-section form input[type="password"],.contact-section form input[type="email"],.contact-section form textarea{
 	border:1px solid #fff;
 	color:#fff;
 	outline:0;
@@ -1858,7 +1882,7 @@ form{
 .contact-section  form input[type="text"]:nth-child(2){
 	margin: 0 0.092em;
 }
-.contact-section form input[type="text"]:hover,.contact-section form textarea:hover{
+.contact-section form input[type="text"]:hover,.contact-section form input[type="password"]:hover,.contact-section form input[type="email"]:hover,.contact-section form textarea:hover{
  	border:1px solid #69e9cf;
  }
 .contact-section form textarea{

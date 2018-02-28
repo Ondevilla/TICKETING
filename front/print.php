@@ -54,7 +54,7 @@ $pdf->Cell(100 ,5,'Bill to',0,1);//end of line
 
 //add dummy cell at beginning of each line for indentation
 $pdf->Cell(10 ,5,'',0,0);
-$pdf->Cell(90 ,5,$user_name,0,1);
+$pdf->Cell(90 ,5,'JUan Dela Cruz',0,1);
 
 $pdf->Cell(10 ,5,'',0,0);
 $pdf->Cell(90 ,5,'',0,1);

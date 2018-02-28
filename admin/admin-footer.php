@@ -1,7 +1,7 @@
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>OLHRP</b> 1.0
+      <b>Concert</b> 1.0
     </div>
-    <strong>Copyright &copy; 2017 .</strong> All rights
+    <strong>Copyright &copy; 2018 .</strong> All rights
     reserved.
   </footer>
