@@ -200,13 +200,7 @@ $row1=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `user_name`="'.$_POST[
                 <ul class="cl-effect-1">
                     <li><a class="active" href="index.php">Home</a></li>
                
-<<<<<<< HEAD
-                    <li><a  href="registration.html">Contact</a></li>
-
-
-=======
                     <li><a  href="registration.php">registration</a></li>
->>>>>>> 6cd9798a1d47aa320fe3af993effa30139176c31
                        <li><a  onclick="document.getElementById('id01').style.display='block'" href="#">Login</a></li>
                 </ul>
             </div>
@@ -282,11 +276,11 @@ $row1=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `user_name`="'.$_POST[
  -->
         <?php 
   
-<<<<<<< HEAD
+
               $query=mysqli_query($c1,"SELECT * FROM event_tbl WHERE  `status`='Admission' ORDER BY event_date ASC LIMIT 4 ;");
-=======
-              $query=mysqli_query($c1,"SELECT * FROM event_tbl WHERE `status`='Admission' ORDER BY event_date ASC LIMIT 4 ;");
->>>>>>> 6cd9798a1d47aa320fe3af993effa30139176c31
+
+            
+
                     while ($row=mysqli_fetch_array($query))
                 echo'          
                 <div class="col-md-3 popular-section-right-grid text-center">
