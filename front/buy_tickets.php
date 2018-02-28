@@ -205,203 +205,92 @@ swal({
             </div>
     </div>
     <!-- banner-section -->
-    <div class="popular-section">
-        <div class="popular-section-left">
-            <div class="popular-section-list">
-            <ul>
-                <li><i class="song"></i></li>
-                <li><a style="cursor:pointer;color:white;">ONE </a></li>
-            </ul>
-            <ul>
-                <li><i class="album"></i></li>
-                <li><a style="cursor:pointer;color:white;">Music</a></li>
-            </ul>
-            <ul>
-                <li><i class="event"></i></li>
-                <li><a style="cursor:pointer;color:white;">ONE</a></li>
-            </ul>
-            <ul>
-                <li><i class="artist"></i></li>
-                <li><a style="cursor:pointer;color:white;">SOUL</a></li>
-            </ul>
-                </div>
-        </div>
-        <div class="popular-section-right">
-            <div class="popular-section-right-top">
-                <h3>CONCERTS</h3>
-               
-            </div>
-            <div class="popular-section-right-grids">
-<!--                 <div class="col-md-3 popular-section-right-grid text-center">
-                    <img src="images/p1.jpg" alt="" />
-                    <h4>Lorem Ipsum dolor</h4>
-                    <p>Mirum est notare</p>
-                </div>
 
+    <div class="events-section">
 
- -->
-        <?php 
-  
-              $query=mysqli_query($c1,"SELECT * FROM event_tbl WHERE  `status`='Admission' ORDER BY event_date ASC LIMIT 4 ;");
-                    while ($row=mysqli_fetch_array($query)){
-
-                        $Mymodal="Mymodal".$row[0];
-                        $gete_id = $row[0];
-                echo'          
-                <div class="col-md-3 popular-section-right-grid text-center">
-                    <img src="../'.$row[3].'" alt="" />
-                    <h4>'.$row[1].'</h4>
-                    <p>Mirum est notare</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#'.$Mymodal.'">Save changes</button>
-                </div>
-
-
-<div class="modal fade" id="'.$Mymodal.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Purchase Tickets!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                
-
-
-Event Name 
-<br>
-<h3>'.$row[1] .'</h3>
-
-
-<center><img src="'.$row[3].'" style="width:5 50px; height:400px;"></center>
-
-
-<br><br>
-<center>
-<table>
-
-<tr>
-<td style="width:300px;">
-Event time : 
-</td>
-
-<td>
-'.$row[4].'
-</td>
-</tr>
-<tr>
-<td>
-Event Date : 
-</td>
-<td>
-'.$row[5].'
-</td>
-</tr>
-
-<tr>
-
-<td>
-Event Date : 
-</td>
-<td>
-'.$row[7].'
-
-</td>
-
-</tr>
-
-</table>
-</center>
-
-<form action="tickets.php" method="post">
-Select seat zone ( 5 seats per zone only )
-<br>
-
-';
-?>
 <?php 
 
-$this_event = $row[0];
-$_SESSION["get_event"] = $this_event; 
-
- 
-echo'
+if(isset($_POST["buy_ticket"]))
 
 
+
+{
 
 
 
 
-            </div>
-            <div class="modal-footer">
+  $zone_id = $_POST["zone_id"];
+  $get_purchased = $_POST["ticket_purchased"];
+  $get_userid = $_SESSION["user_id"];
 
-              <input type="hidden" value="'.$row[0].'" name="zone_name" />
-                <button type="submit" name="get_ticket" class="btn btn-primary">Get tickets  </button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+       $table2_get = "SELECT * FROM zone_tbl WHERE zone_id = '$zone_id'";
+        $run_query2c = mysqli_query($c1,$table2_get);         
+         while ($row=mysqli_fetch_array($run_query2c))
+         {
+
+          $get_zone = $row["zone_name"];
+          $get_price = $row["zone_price"];
+          $ticket_quantity = $row["seat_quantity"];
+
+         }
+
+
+
+
+       $table2 = "SELECT * FROM account_tbl WHERE user_id = '$get_userid'";
+        $run_query2b = mysqli_query($c1,$table2);         
+         while ($row=mysqli_fetch_array($run_query2b))
+         {
+$user_name = $row["user_name"];
+$transac_id = $row["transac_id"];
+$transac_number = $row["transac_number"];
+  ?>
+
+
+<form action="checkout.php" method="post">
+
+<?php   $total_tickets =  $get_price*$get_purchased ;
+  $current_tickets =  $ticket_quantity - $get_purchased; ?>
+  Username : <?php echo $row["user_name"]; ?> <br>
+
+  Transaction ID : <?php echo (int)$row["transac_id"]; ?> <br>
+
+  Transcation Number : <?php echo (int)$row["transac_number"]; ?> <br>
+
+  Seat Zone : <?php echo $get_zone; ?> <br>
+  Tickets Purchased : <?php echo $get_purchased; ?><br>
+  Total Price : <?php  echo $total_tickets; ?>
+  <br>
+  Enter amount to Pay : <input type="number" min="<?php echo $total_tickets;?>" max="<?php echo $total_tickets;?> " name="amount_paid" required>
+
+
+
+ <input type="hidden" value="<?php echo $user_name;?>" name="username"/>
+ <input type="hidden" value="<?php echo $transac_id;?>" name="transac_id"/>
+ <input type="hidden" value="<?php echo $transac_number;?>" name="transac_number"/>
+ <input type="hidden" value="<?php echo $get_zone;?>" name="get_zone"/>
+ <input type="hidden" value="<?php echo $get_purchased;?>" name="get_purchased"/>
+ <input type="hidden" value="<?php echo $total_tickets;?>" name="total_tickets"/>
+
+
+
+<button type="submit" class="btn btn-primary" name="checkout_btn"> Proceed to checkout </button>
 </form>
-            </div>
-        </div>
-    </div>
-</div> 
-                  '
-
-
-
-
-
-                  ;
-
+  <?php 
 
 }
-                  ?>
+
+}
 
 
-                <div class="clearfix"></div>
-            </div>
-       </div>
-       <div class="clearfix"></div>
-    </div>
-    <div class="events-section">
-            <div class="events-section-head">
-                <h3>upcoming Events</h3>
-            </div>
-            <div class="events-section-grids">
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                        <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                         <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                         <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+
+
+
+
+?>
+
+
     </div>
     <div id="example1">
     <div id="owl-demo" class="owl-carousel text-center">
@@ -541,7 +430,28 @@ echo'
 
 
 
+<script>
 
+function getState(val) {
+
+
+
+   $.ajax({
+    type: "POST",
+    url: "get_zone.php",
+    data:'positionname='+val,
+    success: function(data){
+        $("#state-list").html(data);
+    }
+   
+            
+    });
+}
+
+
+
+
+</script>
 
 
 <script src="layout/scripts/jquery.min.js"></script>

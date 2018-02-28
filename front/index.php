@@ -32,6 +32,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='http://fonts.useso.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
 <script src="js/hover_pack.js"></script>
 	<script src="js/jquery.chocolat.js"></script>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+
+
+
+
 		<link rel="stylesheet" href="css/chocolat.css" type="text/css" media="all" />
 		<!--light-box-files -->
 		<script type="text/javascript" charset="utf-8">
@@ -152,6 +167,8 @@ swal({
                     <li><a class="active" href="index.php">Home</a></li>
                
                     <li><a  href="registration.html">Contact</a></li>
+
+
                        <li><a  onclick="document.getElementById('id01').style.display='block'" href="#">Login</a></li>
                 </ul>
             </div>
@@ -227,15 +244,60 @@ swal({
  -->
         <?php 
   
-              $query=mysqli_query($c1,"SELECT * FROM event_tbl WHERE NOT `status`='Admission' ORDER BY event_date ASC LIMIT 4 ;");
+              $query=mysqli_query($c1,"SELECT * FROM event_tbl WHERE  `status`='Admission' ORDER BY event_date ASC LIMIT 4 ;");
                     while ($row=mysqli_fetch_array($query))
                 echo'          
                 <div class="col-md-3 popular-section-right-grid text-center">
                     <img src="../'.$row[3].'" alt="" />
                     <h4>'.$row[1].'</h4>
                     <p>Mirum est notare</p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#getTickets">Save changes</button>
                 </div>
-                  ';
+
+
+<div class="modal fade" id="getTickets" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login Now!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+
+
+    <div class="form-group col">
+      <label >Username :</label>
+      <input type="text" class="form-control"   name="username" style="width: 300px;" required>
+    </div>
+
+        <div class="form-group">
+      <label >Password :</label>
+      <input type="password" class="form-control" name="password" style="width: 300px;" required>
+    </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+
+
+                <button type="button" class="btn btn-primary">Login</button>            
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div> 
+                  '
+
+
+
+
+
+                  ;
 
 
 
@@ -422,4 +484,21 @@ swal({
 	<!-- footer-section-ends -->
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
+
+
+
+
+
+
+
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
 </html>

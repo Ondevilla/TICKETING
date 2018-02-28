@@ -205,203 +205,78 @@ swal({
             </div>
     </div>
     <!-- banner-section -->
-    <div class="popular-section">
-        <div class="popular-section-left">
-            <div class="popular-section-list">
-            <ul>
-                <li><i class="song"></i></li>
-                <li><a style="cursor:pointer;color:white;">ONE </a></li>
-            </ul>
-            <ul>
-                <li><i class="album"></i></li>
-                <li><a style="cursor:pointer;color:white;">Music</a></li>
-            </ul>
-            <ul>
-                <li><i class="event"></i></li>
-                <li><a style="cursor:pointer;color:white;">ONE</a></li>
-            </ul>
-            <ul>
-                <li><i class="artist"></i></li>
-                <li><a style="cursor:pointer;color:white;">SOUL</a></li>
-            </ul>
-                </div>
-        </div>
-        <div class="popular-section-right">
-            <div class="popular-section-right-top">
-                <h3>CONCERTS</h3>
-               
-            </div>
-            <div class="popular-section-right-grids">
-<!--                 <div class="col-md-3 popular-section-right-grid text-center">
-                    <img src="images/p1.jpg" alt="" />
-                    <h4>Lorem Ipsum dolor</h4>
-                    <p>Mirum est notare</p>
-                </div>
+
+    <div class="events-section">
 
 
- -->
-        <?php 
-  
-              $query=mysqli_query($c1,"SELECT * FROM event_tbl WHERE  `status`='Admission' ORDER BY event_date ASC LIMIT 4 ;");
-                    while ($row=mysqli_fetch_array($query)){
-
-                        $Mymodal="Mymodal".$row[0];
-                        $gete_id = $row[0];
-                echo'          
-                <div class="col-md-3 popular-section-right-grid text-center">
-                    <img src="../'.$row[3].'" alt="" />
-                    <h4>'.$row[1].'</h4>
-                    <p>Mirum est notare</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#'.$Mymodal.'">Save changes</button>
-                </div>
+<?php
 
 
-<div class="modal fade" id="'.$Mymodal.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Purchase Tickets!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                
+if(isset($_POST["get_ticket"]))
 
 
-Event Name 
-<br>
-<h3>'.$row[1] .'</h3>
+{
 
 
-<center><img src="'.$row[3].'" style="width:5 50px; height:400px;"></center>
-
+echo '
 
 <br><br>
-<center>
-<table>
 
-<tr>
-<td style="width:300px;">
-Event time : 
-</td>
+Select your Seat Zone : ( Minimum of 5 seats per seat zone only!)
+<select name="get_seat_zone" onChange="getState(this.value);">
+';
 
-<td>
-'.$row[4].'
-</td>
-</tr>
-<tr>
-<td>
-Event Date : 
-</td>
-<td>
-'.$row[5].'
-</td>
-</tr>
+$zone_id = $_POST["zone_name"];
+       $table2 = "SELECT * FROM zone_tbl WHERE event_id = '$zone_id'";
+        $run_query2b = mysqli_query($c1,$table2);         
+         while ($row=mysqli_fetch_array($run_query2b))
+         {
+?>
 
-<tr>
+<?php 
+echo '
 
-<td>
-Event Date : 
-</td>
-<td>
-'.$row[7].'
 
-</td>
 
-</tr>
+<option value="'.$row[0].'">'.$row[1].' </option> 
 
-</table>
-</center>
 
-<form action="tickets.php" method="post">
-Select seat zone ( 5 seats per zone only )
-<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ';
+}
 ?>
-<?php 
 
-$this_event = $row[0];
-$_SESSION["get_event"] = $this_event; 
+</select>
 
- 
-echo'
-
-
-
-
-
-
-            </div>
-            <div class="modal-footer">
-
-              <input type="hidden" value="'.$row[0].'" name="zone_name" />
-                <button type="submit" name="get_ticket" class="btn btn-primary">Get tickets  </button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</form>
-            </div>
-        </div>
-    </div>
-</div> 
-                  '
-
-
-
-
-
-                  ;
-
+<?php
 
 }
-                  ?>
 
+ ?>
 
-                <div class="clearfix"></div>
-            </div>
-       </div>
-       <div class="clearfix"></div>
-    </div>
-    <div class="events-section">
-            <div class="events-section-head">
-                <h3>upcoming Events</h3>
-            </div>
-            <div class="events-section-grids">
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                        <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                         <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                         <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+<br><br>
+
+                        <div id="state-list" >
+<BR>
+
+                                <!-- TABLE GOES IN -->
+                        
+
+                        </div>
+
     </div>
     <div id="example1">
     <div id="owl-demo" class="owl-carousel text-center">
@@ -541,7 +416,28 @@ echo'
 
 
 
+<script>
 
+function getState(val) {
+
+
+
+   $.ajax({
+    type: "POST",
+    url: "get_zone.php",
+    data:'positionname='+val,
+    success: function(data){
+        $("#state-list").html(data);
+    }
+   
+            
+    });
+}
+
+
+
+
+</script>
 
 
 <script src="layout/scripts/jquery.min.js"></script>
