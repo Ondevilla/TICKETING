@@ -120,34 +120,31 @@ img
       <label > Poster :</label>
       <input type="file" name="newsimg" accept="image/*" class="form-control btn btn-success"  style="height:40px;" required >
     </div>
+
     <div class="form-group">
       <label >  Venue :</label>
-      <input type="text" class="form-control btn btn-success"  name="event_venue" required>
-    </div>
-<!--      <div class="form-group">
-      <label >  Venue :</label>
 
 
-                 <div class="input-group-btn">
+   <!--                <div class="input-group-btn">
                     <button type="button" class="btn btn-block btn-primary btn-flat size-125px">Business Type</button>
                   </div> -->
                 
-             <!--  <select name="event_venue"  class="form-control" required>
+             <select name="event_venue"  class="form-control" required>
                  <option value=" " Selected> </option> -->
               <?php
-    //$fetch=mysqli_query($c1,'SELECT * FROM venue_tbl'); 
-    //while($row=mysqli_fetch_array($fetch))
-    //{
-                       // echo "
-                       // <option value='".$row[0]."' >".$row[1]."</option>
-                      //  ";
-                    //  }
-             //    ?>
+    $fetch=mysqli_query($c1,'SELECT * FROM venue_tbl'); 
+    while($row=mysqli_fetch_array($fetch))
+    {
+                      echo "
+                       <option value='".$row[0]."' >".$row[1]."</option>
+                        ";
+                      }
+                 ?>
               
-<!--               </select>
+            </select>
 
     </div>
-  -->
+ 
 
   
 
@@ -209,7 +206,7 @@ img
       
 
 
-            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['venue_name']; ?></th>
+            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['venue_id']; ?></th>
 
             <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['event_image']; ?></th>
 
@@ -318,7 +315,7 @@ echo
  <form  role='form' action='del_event.php' method='post' >
     <div class='form-group'>
       <input type='text' class='form-control'  name='del_id'  style='opacity:0;display:none;' value='".$row['event_id']."'>
-      <label ><center>Are you sure you want to delete '".$row['event_name']."' ?</center></label>
+      <label ><center>Are you sure you want to delete ".$row['event_name']." ?</center></label>
       
     </div>
                 </div>

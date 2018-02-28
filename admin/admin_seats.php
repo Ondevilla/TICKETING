@@ -348,7 +348,7 @@ echo
  <form  role='form' action='del_seats.php' method='post' >
     <div class='form-group'>
       <input type='text' class='form-control'  name='del_id'  style='opacity:0;display:none;' value='".$row['zone_id']."'>
-      <label ><center>Are you sure you want to delete '".$row['zone_name']."' ?</center></label>
+      <label ><center>Are you sure you want to delete ".$row['zone_name']." ?</center></label>
       
     </div>
                 </div>

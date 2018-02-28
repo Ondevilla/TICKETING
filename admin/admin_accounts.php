@@ -167,8 +167,7 @@ img
             <th>#</th>
             <th>Username</th>
             <th>Password</th>
-            <th>Transaction Id</th>
-            <th>Transaction Number</th>
+      
 
 
             <th>Action</th>     
@@ -191,10 +190,7 @@ img
 
 
             <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['user_password']; ?></th>
-            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['transac_id']; ?></th>
-
-            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['transac_number']; ?></th>
-     <!-- <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#'.$Mymodal.'" ><i class="glyphicon glyphicon-edit"></i></button> -->
+   <!-- <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#'.$Mymodal.'" ><i class="glyphicon glyphicon-edit"></i></button> -->
             <?php    
       echo "<th style='color: black;background-color: white;vertical-align: middle;' >";
     $Mahmodal="Mahmodal".$row['user_id'];

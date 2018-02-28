@@ -24,7 +24,7 @@
     <!--  Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
            
-            <a href="logout.php">Sign out</a>
+            <a href="../front/logout.php">Sign out</a>
             
           </li>
           <!-- Control Sidebar Toggle Button -->

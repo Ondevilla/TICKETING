@@ -282,60 +282,27 @@ $row1=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `user_name`="'.$_POST[
             
 
                     while ($row=mysqli_fetch_array($query))
+                    {
                 echo'          
                 <div class="col-md-3 popular-section-right-grid text-center">
-                    <img src="../'.$row[3].'" alt="" />
+                    <img src="../admin/images/'.$row[3].'" alt="" />
                     <h4>'.$row[1].'</h4>
-                    <p>Mirum est notare</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#getTickets">Save changes</button>
-                </div>
+                    <p>Mirum est notare</p>';
+                    ?>
+                    <a  class="btn btn-primary" onclick="document.getElementById('id01').style.display='block'" href="#">RESERVE NOW </a>
+               <?php 
+               echo' </div>
 
 
-<div class="modal fade" id="getTickets" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Login Now!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                
-
-
-    <div class="form-group col">
-      <label >Username :</label>
-      <input type="text" class="form-control"   name="username" style="width: 300px;" required>
-    </div>
-
-        <div class="form-group">
-      <label >Password :</label>
-      <input type="password" class="form-control" name="password" style="width: 300px;" required>
-    </div>
-
-
-
-            </div>
-            <div class="modal-footer">
-
-
-                <button type="button" class="btn btn-primary">Login</button>            
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
-        </div>
-    </div>
-</div> 
                   '
-
+   
 
 
 
 
                   ;
 
-
+                    }
 
                   ?>
 
@@ -389,7 +356,7 @@ $row1=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `user_name`="'.$_POST[
 	
 	<div class="footer">
 		<div class="copy-rights text-center">
-    <p>Copyright &copy; 2018.Company Prince All rights reserved.</p>
+    <p>Copyright &copy; 2018. All rights reserved.</p>
 		</div>			
 	</div>
 	<!-- footer-section-ends -->

@@ -80,7 +80,7 @@ else
 
 
 
-  $table2c = "INSERT INTO event_tbl (event_name, description, event_date, event_time, venue_name, event_image) VALUES ('$event_name','$description','$event_date','$event_time','$event_venue','$newsimg')";
+  $table2c = "INSERT INTO event_tbl (event_name,`description`, event_date, event_time, venue_id, event_image,`status`) VALUES ('$event_name','$description','$event_date','$event_time','$event_venue','$newsimg','Upcoming')";
    $run_query2d = mysqli_query($c1,$table2c);
   
        echo"<script>window.location.href='admin_events.php';</script>";	
