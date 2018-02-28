@@ -262,7 +262,7 @@ $search=mysqli_fetch_assoc($row1);
 
 	<div class="footer">
 		<div class="copy-rights text-center">
-			<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+			<p>Copyright &copy; 2018.Company Prince All rights reserved.</p>
 		</div>			
 	</div>
 	<!-- footer-section-ends -->

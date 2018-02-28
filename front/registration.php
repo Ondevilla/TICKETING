@@ -269,7 +269,7 @@ else
     <!-- footer-section-starts -->
 	<div class="footer">
 		<div class="copy-rights text-center">
-			<p>Copyright &copy; 2015.Company Decena All rights reserved.</p>
+				<p>Copyright &copy; 2018.Company Prince All rights reserved.</p>
 		</div>			
 	</div>
 	<!-- footer-section-ends -->

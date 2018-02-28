@@ -26,7 +26,7 @@
 
 <!--         <li><a href="admin_venue.php"><i class="fa fa-location-arrow"></i> <span>Venue</span></a></li> -->
         <li><a href="admin_accounts.php"><i class="fa fa-users"></i> <span>Accounts</span></a></li>
-        <li><a href="admin_admin.php"><i class="fa fa-user"></i> <span>Administrator</span></a></li>
+        <li><a href="admin_admin.php"><i class="fa fa-file"></i> <span>Report</span></a></li>
 
 
  <!-- 

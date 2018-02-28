@@ -85,58 +85,91 @@ if(isset($_POST['submit']))
 {
 $row1=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `user_name`="'.$_POST["username"].'" AND `user_password`="'.$_POST["password"].'" ');
 
-$search=mysqli_fetch_assoc($row1);
-  $_SESSION['fn']=$search['user_name'];
-  $_SESSION["user_id"] = $search["user_id"];
+          $search=mysqli_fetch_assoc($row1);
+            $_SESSION['fn']=$search['user_name'];
+            $_SESSION["user_id"] = $search["user_id"];
 
-  if (($search['accessright']==1))
-  {
-
-
-
-
-?>
-
-  <script>
- 
-  var user="<?php echo $search['user_name'] ?>";
-
-
-swal({
-
-    title: 'Login Successful !',
-    text: 'Welcome '+ user
-
-}).then(result => {
-  if (result.value) {
- 
- window.location.href='index_user.php';
-
-  } else {
-
-  }
-})
-
-
-  </script> 
-    <?php
-
-  }
-
-  else
-  {
-     echo " 
-
-<script type='text/javascript'>
-    sweetAlert('LOGIN FAILED !', 'Incorrect Username or Password', 'error');
-     window.location.href='index.php';
-</script>
+            if (($search['accessright']==2))
+            {
 
 
 
- ";
 
-  }
+          ?>
+
+            <script>
+           
+            var user="<?php echo $search['user_name'] ?>";
+
+
+          swal({
+
+              title: 'Login Successful !',
+              text: 'Welcome '+ user
+
+          }).then(result => {
+            if (result.value) {
+           
+           window.location.href='index_user.php';
+
+            } else {
+
+            }
+          })
+
+
+            </script> 
+              <?php
+
+           }
+
+          elseif(($search['accessright']==1))
+
+          {
+               ?>
+
+            <script>
+           
+            var user="<?php echo $search['user_name'] ?>";
+
+
+          swal({
+
+              title: 'Login Successful !',
+              text: 'Welcome '+ user
+
+          }).then(result => {
+            if (result.value) {
+           
+           window.location.href='../admin/admin-sample.php';
+
+            } else {
+
+            }
+          })
+
+
+            </script> 
+              <?php
+          }
+
+
+            else
+            {
+              session_destroy();
+               echo " 
+
+          <script type='text/javascript'>
+              sweetAlert('LOGIN FAILED !', 'Incorrect Username or Password', 'error');
+
+               window.location.href='index.php';
+          </script>
+
+
+
+           ";
+
+            }
 }
 
 
@@ -292,7 +325,7 @@ swal({
 	
 	<div class="footer">
 		<div class="copy-rights text-center">
-			<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+    <p>Copyright &copy; 2018.Company Prince All rights reserved.</p>
 		</div>			
 	</div>
 	<!-- footer-section-ends -->
