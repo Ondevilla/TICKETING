@@ -46,8 +46,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="w3w-modal-content w3w-card-4 w3w-animate-zoom" style="max-width:60%;" >
 
       <div class="row" style="margin:0px;background-color: #2196F3; color:white;">
-        <span onclick="document.getElementById('id01').style.display='none'" class="w3w-button w3w-xlarge w3w-hover-red w3w-display-topright" title="Close Modal">&times;</span>
-        <div class="col-md-12"><center><img src="images/logo.png" height="300" width="300" ></center></div>
+        <span onclick="document.getElementById('id01').style.display='none'" style="z-index:10;" class="w3w-button w3w-xlarge w3w-hover-red w3w-display-topright" title="Close Modal">&times;</span>
+        <div class="col-md-12"><center><img src="images/logo.png" height="250" width="250" ></center></div>
 
    <!--      <div class="col-md-8">
         
@@ -65,6 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <label><b>Password</b></label>
           <input class="w3w-input w3w-border" type="password" placeholder="Enter Password" name="password" required>
           <button class="w3w-button w3w-block w3w-blue w3w-section w3w-padding" name="submit" type="submit">Login</button>
+ 
   
         </div>
       </form>
@@ -151,7 +152,7 @@ swal({
                 <ul class="cl-effect-1">
                     <li><a class="active" href="index.php">Home</a></li>
                
-                    <li><a  href="registration.html">Contact</a></li>
+                    <li><a  href="registration.php">registration</a></li>
                        <li><a  onclick="document.getElementById('id01').style.display='block'" href="#">Login</a></li>
                 </ul>
             </div>
@@ -185,7 +186,7 @@ swal({
               <br>
               <br>
                <div class="clearfix"></div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat                          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                <p>A concert is a live music performance in front of an audience. The performance may be by a single musician, sometimes then called a recital, or by a musical ensemble, such as an orchestra, choir, or band.</p>
                 <a href="registration.php">Get Started</a>
             </div>
     </div>

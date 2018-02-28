@@ -40,6 +40,72 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 
+   <div class="w3w-container">
+  <div id="id01" class="w3w-modal" style="background-color: rgba(0,0,0,0.9);position: fixed;z-index: 99999;">
+    <div class="w3w-modal-content w3w-card-4 w3w-animate-zoom" style="max-width:60%;" >
+
+      <div class="row" style="margin:0px;background-color: #2196F3; color:white;">
+        <span onclick="document.getElementById('id01').style.display='none'" style="z-index:10;" class="w3w-button w3w-xlarge w3w-hover-red w3w-display-topright" title="Close Modal">&times;</span>
+        <div class="col-md-12"><center>
+          <br><?php   echo strtoupper($_SESSION['fn']); ?>
+          <br>
+          <br> </center></div>
+
+   <!--      <div class="col-md-8">
+        
+            <br>
+            <br>
+            <br><center><h1 >CONCERT</h1></center></div> -->
+
+
+      </div>
+
+      <?php
+
+
+
+
+     
+
+      $row1=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `user_name`="'.$_SESSION['fn'].'"  ');
+
+$search=mysqli_fetch_assoc($row1);
+
+       ?>
+
+      <form class="w3w-container" action="edit_user.php" method="post">
+        <div class="w3w-section">
+          <label><b>Username</b></label>
+      <?php echo '  <input class="w3w-input w3w-border w3w-margin-bottom" type="text" placeholder="'.$search['user_name'].'" name="UN" >';?>
+          <label><b>Password</b></label>
+         <?php echo '   <input class="w3w-input w3w-border" type="password" placeholder="'. $search['user_password'].'" name="UP" >';?>
+          <label><b>Contact</b></label>
+        <?php echo '  <input class="w3w-input w3w-border" type="Contact" placeholder="'. $search['contact_number'].'" name="UC" >';?>
+
+             <label><b>Email</b></label>
+            <?php echo ' <input class="w3w-input w3w-border" type="Email" placeholder="'. $search['email'].'" name="UE" >';?>
+
+
+
+
+          <button class="w3w-button w3w-block w3w-blue w3w-section w3w-padding" name="submit" type="submit">SAVE</button>
+ 
+  
+        </div>
+      </form>
+
+   
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 
 
 	<!-- header-section-starts -->
@@ -53,8 +119,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="cl-effect-1">
                     <li><a class="active" href="index_user.php">Home</a></li>
                
-                  
-                       <li><a   href="logout.php"><?php echo   $_SESSION['fn']; ?></a></li>
+                     <li><a onclick="document.getElementById('id01').style.display='block'" href="#" ><?php echo   $_SESSION['fn']; ?></a></li>
+                       <li><a  href="logout.php"  > Log Out</a></li>
                 </ul>
             </div>
 
@@ -87,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <br>
               <br>
                <div class="clearfix"></div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat                          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                <p>A concert is a live music performance in front of an audience. The performance may be by a single musician, sometimes then called a recital, or by a musical ensemble, such as an orchestra, choir, or band.</p>
              
             </div>
     </div>
