@@ -184,11 +184,9 @@ echo '
    
   <div class="footer">
     <div class="copy-rights text-center">
-      <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-    </div>      
+    <p>Copyright &copy; 2018. All rights reserved.</p>   </div>      
   </div>
   <!-- footer-section-ends -->
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 
 

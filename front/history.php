@@ -126,10 +126,10 @@ $search=mysqli_fetch_assoc($row1);
             <div class="top-menu">
       <span class="menu"> </span>
                 <ul class="cl-effect-1">
-                    <li><a class="active" href="index.php">Home</a></li>
+                    <li><a  href="index.php">Home</a></li>
                
                     <li><a onclick="document.getElementById('id01').style.display='block'" href="#" ><?php echo   $_SESSION['fn']; ?></a></li>
-                    <li><a  href="history.php" >HISTORY</a></li>
+                    <li><a  class="active" href="history.php" >HISTORY</a></li>
                        <li><a  href="logout.php"  > Log Out</a></li>
                 </ul>
             </div>
@@ -171,80 +171,77 @@ $search=mysqli_fetch_assoc($row1);
 
     <div class="events-section">
 
-<?php 
 
+<table class="table">
 
+    <!--Table head-->
+    <thead class="blue-grey lighten-4">
+        <tr>
+            <th>#</th>
+            <th>Event</th>
+            <th>User</th>
+            <th>Reference</th>
+            <th>Zone</th>
+            <th>Ticket  </th>
 
+            <th>Total Price</th>     
+        </tr>
+    </thead>
+    <!--Table head-->
 
+    <!--Table body-->
+    <tbody>
+    <?php 
+   
+    $fetch=mysqli_query($c1,'SELECT * From transac_tbl where user_id="'.$_SESSION['user_id'].'" '); 
+    while($row=mysqli_fetch_array($fetch))
+    {
 
-  $zone_id = $_POST["get_seat_zone"];
-  $get_purchased = $_POST["ticket_purchased"];
-  $get_userid = $_SESSION["user_id"];
-
-
-       $table2_get = "SELECT * FROM zone_tbl WHERE zone_id = '$zone_id'";
-        $run_query2c = mysqli_query($c1,$table2_get);         
-         while ($row=mysqli_fetch_array($run_query2c))
-         {
-
-          $get_zone = $row["zone_name"];
-          $get_price = $row["zone_price"];
-          $ticket_quantity = $row["seat_quantity"];
-
-         }
-
-
-
-
-       $table2 = "SELECT * FROM account_tbl WHERE user_id = '$get_userid'";
-        $run_query2b = mysqli_query($c1,$table2);         
-         while ($row=mysqli_fetch_array($run_query2b))
-         {
-$user_name = $row["user_name"];
-$transac_id = $row["transac_id"];
-$transac_number = $row["transac_number"];
   ?>
+        <tr>
+            <th scope="row" style="vertical-align: middle;"><?php echo $row['0']; ?></th>
+            <?php 
+       $fetch1=mysqli_query($c1,'SELECT * From event_tbl where event_id="'.$row[1].'" ');
+       $row1=mysqli_fetch_array($fetch1) 
+       ?>
+       
+            <th style="color: black;background-color: white; vertical-align: middle;"><?php echo $row1[1]; ?></th>
+        
+            <?php 
+       $fetch2=mysqli_query($c1,'SELECT * From account_tbl where user_id="'.$row[2].'" ');
+       $row2=mysqli_fetch_array($fetch2) 
+       ?>
+       
+
+            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row2[1]; ?></th>
+            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row[3]; ?></th>
+            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row[4]; ?></th>
+            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row[5]; ?></th>
+            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row[6]; ?></th>
 
 
-<form action="checkout.php" method="post">
-
-<?php   $total_tickets =  $get_price*$get_purchased ;
-  $current_tickets =  $ticket_quantity - $get_purchased; ?>
-  Username : <?php echo $row["user_name"]; ?> <br>
-
-  Transaction ID : <?php echo (int)$row["transac_id"]; ?> <br>
-
-  Transcation Number : <?php echo (int)$row["transac_number"]; ?> <br>
-
-  Seat Zone : <?php echo $get_zone; ?> <br>
-  Tickets Purchased : <?php echo $get_purchased; ?><br>
-  Total Price : <?php  echo $total_tickets; ?>
-  <br>
-  Enter amount to Pay : <input type="number" min="<?php echo $total_tickets;?>" max="<?php echo $total_tickets;?> " name="amount_paid" required>
+      
 
 
-
- <input type="hidden" value="<?php echo $user_name;?>" name="username"/>
- <input type="hidden" value="<?php echo $transac_id;?>" name="transac_id"/>
- <input type="hidden" value="<?php echo $transac_number;?>" name="transac_number"/>
- <input type="hidden" value="<?php echo $get_zone;?>" name="get_zone"/>
- <input type="hidden" value="<?php echo $get_purchased;?>" name="get_purchased"/>
- <input type="hidden" value="<?php echo $total_tickets;?>" name="total_tickets"/>
-
-
-
-<button type="submit" class="btn btn-primary" name="checkout_btn"> Proceed to checkout </button>
-</form>
-  <?php 
-
-}
+</tr>
 
 
 
 
 
+      <?php
+       }
 
-?>
+    ?>
+    </tbody>
+    <!--Table body-->
+</table>
+
+
+
+
+
+
 
 
     </div>
@@ -259,28 +256,7 @@ $transac_number = $row["transac_number"];
 
 
 
-<script>
 
-function getState(val) {
-
-
-
-   $.ajax({
-    type: "POST",
-    url: "get_zone.php",
-    data:'positionname='+val,
-    success: function(data){
-        $("#state-list").html(data);
-    }
-   
-            
-    });
-}
-
-
-
-
-</script>
 
 
 <script src="layout/scripts/jquery.min.js"></script>

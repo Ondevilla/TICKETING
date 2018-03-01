@@ -214,13 +214,14 @@ img
       echo "<th style='color: black;background-color: white;vertical-align: middle;' >";
   
   $Mymodal="Mymodal".$row['event_id'];
+ 
 $Yourmodal="Yourmodal".$row['event_id'];
     echo '<center>
 
 
-
-     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#'.$Mymodal.'" ><i class="glyphicon glyphicon-edit"></i></button>
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#'.$Yourmodal.'"><i class="glyphicon glyphicon-remove"></i></button></center>';
+  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#'.$Mymodal.'" ><i class="glyphicon glyphicon-edit"></i></button>
+   
+   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#'.$Yourmodal.'"><i class="glyphicon glyphicon-remove"></i></button></center>';
 
 
 
@@ -239,47 +240,30 @@ echo
             <div class='modal-content'>
                 <div class='modal-header'>
                     <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                    <h4 class='modal-title'>EDIT FORM </h4>
+                    <h4 class='modal-title'>STATUS FORM </h4>
                 </div>
                 <div class='modal-body'>
         
 
 
- <form  role='form' action='edit_announcement.php' method='post' enctype='multipart/form-data'>
+ <form  role='form' action='STATUS.php' method='post' enctype='multipart/form-data'>
     <div class='form-group'>
-      <input type='text' class='form-control' name='edita_id'   style='opacity:0;z-index:-9999;position:absolute;' value='".$row['event_id']."'>
-      <label >Announcement:</label>
-      <input type='text' class='form-control'  name='editannouncement' placeholder='".$row['event_name']."' >
+      <input type='text' class='form-control' name='ID'   style='display:none;opacity:0;z-index:-9999;position:absolute;' value='".$row['event_id']."'>
+      <label >STATUS: ".$row['status']." </label>
+
+      <select name='sts'>
+      <option value='Upcoming'>Upcoming</option>
+      <option value='Admission'>For Admission</option>
+      <option value='Sold Out'>Sold Out</option>
+      <option value='Closed'>Closed</option>
+      </select>
     </div>
 ";
 
 
 
 echo "
-  <div class='form-group'>
-      <label >Date:</label>
-      <input type='date' class='form-control'  name='editannouncementdate' placeholder='".$row['event_name']."' >
-    </div>
 
-      <div class='form-group'>
-      <label >Date:</label>
-      <input type='time' class='form-control'  name='editannouncementtime' placeholder='".$row['event_name']
-  ."' >
-    </div>
-
-      <div class='form-group'>
-      <label >Venue:</label>
-      <input type='text' class='form-control'  name='editannouncementvenue' placeholder='".$row['event_name']."' >
-    </div>
-    <div class='form-group'>
-      <label >Oraganizer:</label>
-      <input type='text' class='form-control'  name='editannouncementorganizer' placeholder='".$row['event_name']."' >
-    </div>
-
-     <div class='form-group'>
-      <label >Content:</label>
-      <textarea style='resize:none;' class='form-control' rows='7' name='editannouncementcon'  placeholder='".($row['event_name'])."' ></textarea>
-    </div>
 
 
  

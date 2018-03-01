@@ -317,39 +317,39 @@ $row1=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `user_name`="'.$_POST[
                 <h3>upcoming Events</h3>
             </div>
             <div class="events-section-grids">
+              
+
+
+              <?php 
+              
+              
+    $query=mysqli_query($c1,"SELECT * FROM event_tbl WHERE  `status`='Upcoming' ORDER BY event_date ASC LIMIT 4 ;");
+
+            
+
+                    while ($row=mysqli_fetch_array($query))
+                    {
+              
+                     
+                      
+                      
+?> 
                 <div class="col-md-4 events-section-grid">
                     <div class="events-section-grid-left">
-                        <h2>03/</h2>
-                        <h2>05</h2>
+                         <h2><?php  echo  substr($row['event_date'],5,-3); ?>/</h2>
+                        <h2><?php   echo  substr($row['event_date'],8); ?></h2>
                     </div>
                     <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
+                        <h4><?php echo $row['event_name']; ?></h4>
+                        <p><?php echo $row['description']; ?></p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                         <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                         <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
+           
+                    <?php }?>
+
+
+
                 <div class="clearfix"></div>
             </div>
     </div>

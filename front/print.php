@@ -1,9 +1,7 @@
 <?php 
 include("connect.php");
 require('fpdf17/fpdf.php');
-
-
-
+include("preprint.php");
 
 $user_name = $_POST["username"];
 $transac_id = $_POST["transac_id"];
@@ -13,8 +11,7 @@ $get_purchased = $_POST["get_purchased"];
 $total_tickets = $_POST["total_tickets"];
 $amount_paid = $_POST["amount_paid"];
 $change = $_POST["change"];
-
-
+$row9=mysqli_fetch_array(mysqli_query($c1,'SELECT event_name from event_tbl where event_id="'.$get_event.'"'));
 
 //create pdf object
 $pdf = new FPDF('P','mm','A4');
@@ -25,7 +22,7 @@ $pdf->SetFont('Arial','B',14);
 
 //Cell(width , height , text , border , end line , [align] )
 
-$pdf->Cell(130 ,5,'PRINCE TICKETNET OUTLET',0,0);
+$pdf->Cell(130 ,5,'Online Concert Ticketing',0,0);
 $pdf->Cell(59 ,5,'INVOICE',0,1);//end of line
 
 //set font to arial, regular, 12pt
@@ -44,7 +41,7 @@ $pdf->Cell(34 ,5,$transac_id,0,1);//end of line
 
 $pdf->Cell(130 ,5,'Fax [+12345678]',0,0);
 $pdf->Cell(25 ,5,'Customer ID',0,0);
-$pdf->Cell(34 ,5,'[1234567]',0,1);//end of line
+$pdf->Cell(34 ,5,$transac_number,0,1);//end of line
 
 //make a dummy empty cell as a vertical spacer
 $pdf->Cell(189 ,10,'',0,1);//end of line
@@ -54,13 +51,12 @@ $pdf->Cell(100 ,5,'Bill to',0,1);//end of line
 
 //add dummy cell at beginning of each line for indentation
 $pdf->Cell(10 ,5,'',0,0);
-$pdf->Cell(90 ,5,'JUan Dela Cruz',0,1);
+$pdf->Cell(90 ,5,$_SESSION['fn'],0,1);
 
 $pdf->Cell(10 ,5,'',0,0);
 $pdf->Cell(90 ,5,'',0,1);
 
-$pdf->Cell(10 ,5,'',0,0);
-$pdf->Cell(90 ,5,'Mandauyong City',0,1);
+
 
 $pdf->Cell(10 ,5,'',0,0);
 $pdf->Cell(90 ,5,'',0,1);
@@ -79,7 +75,7 @@ $pdf->SetFont('Arial','',12);
 
 //Numbers are right-aligned so we give 'R' after new line parameter
 
-$pdf->Cell(130 ,5,$get_zone,1,0);
+$pdf->Cell(130 ,5,$get_zone ." ".$_SESSION['gename'],1,0);
 $pdf->Cell(25 ,5,$get_purchased,1,0);
 $pdf->Cell(34 ,5,$total_tickets,1,1,'R');//end of line
 

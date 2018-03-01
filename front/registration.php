@@ -192,9 +192,12 @@ $row2=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `user_name`="'.$_POST[
 		else
 		{
 
+			$runs = mysqli_query($c1,'SELECT  MAX(user_id)  FROM account_tbl ');
+			$runs1=$runs+1;
+			$runsx=$runs1+900000;
+			
 
-
-		mysqli_query($c1,'INSERT INTO account_tbl(user_name,user_password,contact_number,email,accessright) values ("'.$_POST['UN'].'","'.$_POST['UP'].'","'.$_POST['UC'].'","'.$_POST['UE'].'","2") ');
+		mysqli_query($c1,'INSERT INTO account_tbl(user_name,user_password,contact_number,email,accessright,transac_id,transac_number) values ("'.$_POST['UN'].'","'.$_POST['UP'].'","'.$_POST['UC'].'","'.$_POST['UE'].'","2","'.$runs1.'","'.$runsx.'") ');
 
 		$row1=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `user_name`="'.$_POST["UN"].'" AND `user_password`="'.$_POST["UP"].'" ');
 

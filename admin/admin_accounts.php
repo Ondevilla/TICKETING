@@ -96,14 +96,14 @@ img
 <div id="panel">
 
  
-  <form  role="form" action="sub_accounts.php" method="post"  enctype="multipart/form-data">
+  <form  role="form" action="sub_admin.php" method="post"  enctype="multipart/form-data">
     <div class="form-group">
       <label >  Userame:</label>
-      <input type="text" class="form-control btn btn-success" name="venue" required>
+      <input type="text" class="form-control btn btn-success" name="username" required>
     </div>
     <div class="form-group">
       <label >  Password :</label>
-      <input type="text" class="form-control btn btn-success"  name="address" required>
+      <input type="text" class="form-control btn btn-success"  name="password" required>
     </div>
 
 <!--     <div class="form-group">
@@ -196,17 +196,17 @@ img
     $Mahmodal="Mahmodal".$row['user_id'];
   $Mymodal="Mymodal".$row['user_id'];
 $Yourmodal="Yourmodal".$row['user_id'];
-    echo '<center>
+  echo '<center>
 
 
-     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#'.$Mahmodal.'" ><i class="fa fa-eye"></i></button>
+ <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#'.$Mahmodal.'" ><i class="fa fa-edit"></i></button>
 
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#'.$Yourmodal.'"><i class="glyphicon glyphicon-remove"></i></button></center>';
-
-
+   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#'.$Yourmodal.'"><i class="glyphicon glyphicon-remove"></i></button></center>';
 
 
-  echo "</td>";
+
+
+ echo "</td>";
 
 echo
 "
@@ -223,25 +223,33 @@ echo
         
 
 
- <form  role='form' action='edit_announcement.php' method='post' enctype='multipart/form-data'>
+ <form  role='form' action='edit_account.php' method='post' enctype='multipart/form-data'>
 
 ";
 
 
 
 echo "
+<input type='text' class='form-control' style='display:none;' name='ID' value='".$row['user_id']."'  >
+
+
   <div class='form-group'>
-      <label >Contact Number :</label>
-      <input type='text' class='form-control'  name='venue_name' placeholder='".$row['contact_number']."' disabled >
+      <label >Username:</label>
+      <input type='text' class='form-control'  name='UN' placeholder='".$row['user_name']."'  >
     </div>
   <div class='form-group'>
-      <label >Email :</label>
-      <input type='text' class='form-control'  name='venue_name' placeholder='".$row['email']."' disabled>
+      <label >Password :</label>
+      <input type='text' class='form-control'  name='UP' placeholder='".$row['user_password']."' >
     </div>
       <div class='form-group'>
-      <label >Accessright :</label>
-      <input type='text' class='form-control'  name='venue_name' placeholder='".$row['accessright']."' disabled>
+      <label >Contact :</label>
+      <input type='text' class='form-control'  name='UC' placeholder='".$row['contact_number']."' >
     </div>
+    <div class='form-group'>
+    <label >Email :</label>
+    <input type='text' class='form-control'  name='UE' placeholder='".$row['email']."' >
+  </div>
+
 
 
 
@@ -253,7 +261,7 @@ echo "
 
                 </div>
                 <div class='modal-footer'>
-
+                <button name='submit' type='submit' class='btn btn-success' >Save</button>
                     <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
   </form>
                 </div>
@@ -263,64 +271,7 @@ echo "
 ";
 
 
-   
-echo
-"
-    
-    <!-- Modal HTML -->
-    <div id='".$Mymodal."' class='modal fade'>
-        <div class='modal-dialog'>
-            <div class='modal-content'>
-                <div class='modal-header'>
-                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                    <h4 class='modal-title'>EDIT FORM </h4>
-                </div>
-                <div class='modal-body'>
-        
 
-
- <form  role='form' action='edit_announcement.php' method='post' enctype='multipart/form-data'>
-
-";
-
-
-
-echo "
-  <div class='form-group'>
-      <label >Venue :</label>
-      <input type='text' class='form-control'  name='venue_name' placeholder='".$row['user_name']."' >
-    </div>
-
-  <div class='form-group'>
-      <label >Venue :</label>
-      <input type='text' class='form-control'  name='venue_name' placeholder='".$row['user_password']."' >
-    </div>
-   <div class='form-group'>
-      <label >Venue :</label>
-      <input type='text' class='form-control'  name='venue_name' placeholder='".$row['user_name']."' >
-    </div>
-      <div class='form-group'>
-      <label >Venue :</label>
-      <input type='text' class='form-control'  name='venue_name' placeholder='".$row['user_name']."' >
-    </div>
-
-
-
-
- 
-
-
-
-                </div>
-                <div class='modal-footer'>
-                    <button type='submit' name='submit' class='btn btn-success'>Save</button>
-                    <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
-  </form>
-                </div>
-            </div>
-        </div>
-    </div>
-";
 
 
 //==========================================================================
@@ -337,9 +288,9 @@ echo
                 </div>
                 <div class='modal-body'>
                  
- <form  role='form' action='del_announcement.php' method='post' >
+ <form  role='form' action='del_admin.php' method='post' >
     <div class='form-group'>
-      <input type='text' class='form-control'  name='delID'  style='opacity:0;display:none;' value='".$row['user_id']."'>
+      <input type='text' class='form-control'  name='del_id'  style='opacity:0;display:none;' value='".$row['user_id']."'>
       <label ><center>Are you sure you want to delete '".$row['user_name']."' ?</center></label>
       
     </div>

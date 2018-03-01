@@ -199,13 +199,14 @@ echo
         
 
 
- <form  role='form' action='edit_announcement.php' method='post' enctype='multipart/form-data'>
+ <form  role='form' action='edit_venue.php' method='post' enctype='multipart/form-data'>
 
 ";
 
 
 
 echo "
+<input type='text' class='form-control' style='display:none;' name='id' value='".$row['venue_id']."' >
   <div class='form-group'>
       <label >Venue :</label>
       <input type='text' class='form-control'  name='venue_name' placeholder='".$row['venue_name']."' >
@@ -249,7 +250,7 @@ echo
                 </div>
                 <div class='modal-body'>
                  
- <form  role='form' action='del_announcement.php' method='post' >
+ <form  role='form' action='del_venue.php' method='post' >
     <div class='form-group'>
       <input type='text' class='form-control'  name='delID'  style='opacity:0;display:none;' value='".$row['venue_id']."'>
       <label ><center>Are you sure you want to delete '".$row['venue_name']."' ?</center></label>

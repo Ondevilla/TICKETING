@@ -131,7 +131,8 @@ $search=mysqli_fetch_assoc($row1);
                     <li><a class="active" href="index.php">Home</a></li>
                
                     <li><a onclick="document.getElementById('id01').style.display='block'" href="#" ><?php echo   $_SESSION['fn']; ?></a></li>
-                       <li><a  href="logout.php"  > Log Out</a></li>
+                    <li><a  href="history.php" >HISTORY</a></li>
+                    <li><a  href="logout.php"  > Log Out</a></li>
                 </ul>
             </div>
 
@@ -278,7 +279,7 @@ Event Venue :
 </table>
 </center>
 
-<form action="tickets.php" method="post">
+<form action="buy_tickets.php" method="post">
 Select seat zone ( 5 seats per zone only )
 <br>
 
@@ -286,17 +287,40 @@ Select seat zone ( 5 seats per zone only )
 ?>
 <?php 
 
-$this_event = $row[0];
+ $this_event = $row[0];
 $_SESSION["get_event"] = $this_event; 
 
- 
+ ?>
+
+
+
+
+ <br>
+
+Seat zone:
+<select name="get_seat_zone">
+<?php 
+       $table2 = "SELECT * FROM zone_tbl WHERE event_id = '$this_event'";
+        $run_query2b = mysqli_query($c1,$table2);         
+         while ($row=mysqli_fetch_array($run_query2b))
+         {
+            echo '
+
+            <option value="'.$row[0].'">'.$row[1].' </option> ';
+            
+         }
+?>
+</select>
+
+        <br>  
+Quantity:
+ <input type="number" max="5" name="ticket_purchased" />
+
+<br>
+
+
+<?php 
 echo'
-
-
-
-
-
-
             </div>
             <div class="modal-footer">
 
@@ -331,168 +355,41 @@ echo'
                 <h3>upcoming Events</h3>
             </div>
             <div class="events-section-grids">
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                        <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                         <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="col-md-4 events-section-grid">
-                    <div class="events-section-grid-left">
-                         <h2>03/</h2>
-                        <h2>05</h2>
-                    </div>
-                    <div class="events-section-grid-right">
-                        <h4>Claritas est etiam processus dynamicus, qui sequitu</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
+               
+
+                             <?php 
+              
+              
+              $query=mysqli_query($c1,"SELECT * FROM event_tbl WHERE  `status`='Upcoming' ORDER BY event_date ASC LIMIT 4 ;");
+          
+                      
+          
+                              while ($row=mysqli_fetch_array($query))
+                              {
+                        
+                               
+                                
+                                
+          ?> 
+                          <div class="col-md-4 events-section-grid">
+                              <div class="events-section-grid-left">
+                                   <h2><?php  echo  substr($row['event_date'],5,-3); ?>/</h2>
+                                  <h2><?php   echo  substr($row['event_date'],8); ?></h2>
+                              </div>
+                              <div class="events-section-grid-right">
+                                  <h4><?php echo $row['event_name']; ?></h4>
+                                  <p><?php echo $row['description']; ?></p>
+                              </div>
+                              <div class="clearfix"></div>
+                          </div>
+                     
+                              <?php }?>
+
+
                 <div class="clearfix"></div>
             </div>
     </div>
-    <div id="example1">
-    <div id="owl-demo" class="owl-carousel text-center">
-      <div class="item">
-        <a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-          <img class="img-responsive lot" src="images/pc.jpg" alt="">
-                    <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                            <i class="plus"></i>
-                        </div>
-                    </div>
-                </a>
-      </div>
-      <div class="item">
-        <a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc1.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-          <img class="img-responsive lot" src="images/pc1.jpg" alt="">
-                     <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                             <i class="plus"></i>
-                </div>
-                    </div>
-        </a>
-      </div>
-      <div class="item">
-        <a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc2.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-          <img class="img-responsive lot" src="images/pc2.jpg" alt="">
-                     <div class="b-wrapper">
-                    <div class="b-animate b-from-left b-delay03 ">
-                        <i class="plus"></i>
-                </div>
-                         </div>
-
-        </a>
-      </div>
-      <div class="item">
-                <a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc3.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-          <img class="img-responsive lot" src="images/pc3.jpg" alt="">
-                     <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                            <i class="plus"></i>
-                         </div>
-                    </div>
-        </a>
-            </div>
-      <div class="item">
-        <a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-          <img class="img-responsive lot" src="images/pc.jpg" alt="">
-                    <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                            <i class="plus"></i>
-                        </div>
-                    </div>
-                </a>
-      </div>
-      <div class="item">
-        <a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc1.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-          <img class="img-responsive lot" src="images/pc1.jpg" alt="">
-                     <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                             <i class="plus"></i>
-                </div>
-                    </div>
-        </a>
-      </div>
-      <div class="item">
-        <a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc2.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-          <img class="img-responsive lot" src="images/pc2.jpg" alt="">
-                     <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                             <i class="plus"></i>
-                </div>
-                    </div>
-        </a>
-      </div>
-      <div class="item">
-        <a data-toggle="modal" data-target=".bs-example-modal-md" href="images/pc3.jpg" class="b-link-stripe b-animate-go  thickbox" title="Rose"                           rel="title1">
-          <img class="img-responsive lot" src="images/pc3.jpg" alt="">
-                     <div class="b-wrapper">
-                         <div class="b-animate b-from-left b-delay03 ">
-                            <i class="plus"></i>
-                         </div>
-                    </div>
-        </a>
-      </div>
-    </div>
-    </div>
-        <!-- requried-jsfiles-for owl -->
-              <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
-                  <script src="js/owl.carousel.js"></script>
-                    <script>
-                  $(document).ready(function() {
-                     $("#owl-demo").owlCarousel({
-                      items : 4,
-                      lazyLoad : true,
-                      autoPlay : false,
-                      navigation : true,
-                      navigationText :  true,
-                      pagination : false,
-                      });
-                  });
-                </script>
-        <!-- //requried-jsfiles-for owl -->
-    <!-- start content_slider -->
-    <!--//sreen-gallery-cursual -->
-   <!--  <div class="social-network">
-        <div class="social-network1">
-        <a href="#">
-        <i class="facebook"></i>
-                <p>like Us On Facebook</p>
-        <div class="clearfix"></div>
-        </a>
-        </div>
-        <div class="social-network2">
-      <a href="#">
-      <i class="twitter"></i>
-      <p>Follow us On Twitter</p>
-      </a>
-        </div>
-        <div class="social-network3">
-      <a href="#">
-      <i class="googlepluse"></i>
-      <p>Follow Us On Google+</p>
-      </a>
-        </div>
-        <div class="clearfix"></div>
-    </div> -->
-    <!-- footer-section-starts -->
+   
   <div class="footer">
     <div class="copy-rights text-center">
     <p>Copyright &copy; 2018. All rights reserved.</p>

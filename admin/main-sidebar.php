@@ -23,11 +23,12 @@
         <li><a href="admin_events.php"><i class="fa fa-info-circle"></i> <span>Events</span></a></li>
         <li><a href="admin_seats.php"><i class="fa fa-list-ol"></i> <span>Seats</span></a></li>
 
-
+   <li><a href="admin_venue.php"><i class="fa fa-bank"></i> <span>Venues</span></a></li>
 <!--         <li><a href="admin_venue.php"><i class="fa fa-location-arrow"></i> <span>Venue</span></a></li> -->
         <li><a href="admin_accounts.php"><i class="fa fa-users"></i> <span>Accounts</span></a></li>
-        <li><a href="admin_admin.php"><i class="fa fa-file"></i> <span>Report</span></a></li>
-
+        
+        <li><a href="admin_reports.php"><i class="fa fa-file"></i> <span>Reports</span></a></li>
+     
 
  <!-- 
         <li class="header">LABELS</li>
